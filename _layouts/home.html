@@ -3,20 +3,151 @@ layout: default
 title: Home
 ---
 
-{% for post in paginator.posts %}
-  {% include featured-post.html %}
-{% endfor %}
+<!-- ... existing code ... -->
 
-<!-- Pagination links -->
-<div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-button pagination-active next" href="{{ site.github.url }}{{ paginator.next_page_path }}">{{ site.data.settings.pagination.previous_page }}</a>
-  {% else %}
-    <span class="pagination-button">{{ site.data.settings.pagination.previous_page }}</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-    <a class="pagination-button pagination-active" href="{{ site.baseurl }}{{ paginator.previous_page_path }}">{{ site.data.settings.pagination.next_page }}</a>
-  {% else %}
-    <span class="pagination-button">{{ site.data.settings.pagination.next_page }}</span>
-  {% endif %}
+<div class="image-carousel">
+  <div class="carousel-container">
+    {% for post in paginator.posts %}
+      <div class="carousel-slide">
+        {% if post.image %}
+          <a href="{{ site.github.url }}{{ post.url }}">
+            <img src="{{ site.github.url }}/assets/img/{{ post.image }}" alt="{{ post.title }}">
+            <div class="carousel-caption">
+              <h3>{{ post.title }}</h3>
+              <p>{{ post.description }}</p>
+            </div>
+          </a>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+  
+  <button class="carousel-button prev">&#10094;</button>
+  <button class="carousel-button next">&#10095;</button>
 </div>
+
+<style>
+.image-carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-container {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  position: relative;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  position: relative; /* 改为相对定位 */
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 20px;
+  text-align: center; /* 文字居中 */
+  margin-top: 10px; /* 添加顶部间距 */
+  border-radius: 0px; /* 添加圆角 */
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 16px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s;
+}
+
+.carousel-button:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-button.prev {
+  left: 10px;
+}
+
+.carousel-button.next {
+  right: 10px;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const container = document.querySelector('.carousel-container');
+  const slides = document.querySelectorAll('.carousel-slide');
+  const prevButton = document.querySelector('.carousel-button.prev');
+  const nextButton = document.querySelector('.carousel-button.next');
+  let currentIndex = 0;
+  
+  // 克隆第一个和最后一个slide用于无缝循环
+  const firstClone = slides[0].cloneNode(true);
+  const lastClone = slides[slides.length - 1].cloneNode(true);
+  container.appendChild(firstClone);
+  container.insertBefore(lastClone, slides[0]);
+  
+  // 调整初始位置
+  container.style.transform = `translateX(-100%)`;
+  
+  function updateSlide(direction) {
+    container.style.transition = 'transform 0.5s ease-in-out';
+    currentIndex += direction;
+    container.style.transform = `translateX(-${(currentIndex + 1) * 100}%)`;
+    
+    // 处理循环
+    if (currentIndex === slides.length) {
+      setTimeout(() => {
+        container.style.transition = 'none';
+        currentIndex = 0;
+        container.style.transform = `translateX(-100%)`;
+      }, 500);
+    } else if (currentIndex === -1) {
+      setTimeout(() => {
+        container.style.transition = 'none';
+        currentIndex = slides.length - 1;
+        container.style.transform = `translateX(-${slides.length * 100}%)`;
+      }, 500);
+    }
+  }
+
+  function nextSlide() {
+    updateSlide(1);
+  }
+
+  function prevSlide() {
+    updateSlide(-1);
+  }
+
+  // 添加按钮事件监听
+  nextButton.addEventListener('click', nextSlide);
+  prevButton.addEventListener('click', prevSlide);
+
+  // 自动播放
+  let slideInterval = setInterval(nextSlide, 5000);
+
+  // 鼠标悬停时暂停自动播放
+  container.addEventListener('mouseenter', () => {
+    clearInterval(slideInterval);
+  });
+
+  // 鼠标离开时恢复自动播放
+  container.addEventListener('mouseleave', () => {
+    slideInterval = setInterval(nextSlide, 5000);
+  });
+});
+</script>
+
+<!-- ... existing code ... -->

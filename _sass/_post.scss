@@ -9,11 +9,16 @@
   color: #9a9a9a;
   font-size:0.8rem;
 }
-.featured-image img {
-  align: middle;
-  margin: 5px auto 25px;
-  display: block;
-  max-width: 600px;
+.featured-image {
+  width: 100%; // 使图片宽度占满父容器
+  max-width: 100%; // 确保不会超出容器
+  height: auto; // 保持图片比例
+  display: block; // 确保图片是块级元素
+  object-fit:cover;
+  img {
+    width: 100%;
+    height: auto;
+  }
 }
 @media (max-width: $container-width) {
   .post-content {
@@ -94,3 +99,4 @@
     width: 95vw;
   }
 }
+

@@ -1,11 +1,15 @@
 <!doctype html>
 <html>
   {% include head.html %}
+  <script src="/assets/js/toc.js"></script>
   <body>
     <div class="container">
       {% include header.html %}
       <div class="content-wrapper">
-        {{ content }}
+
+        <main class="content">
+          {{ content }}
+        </main>
       </div>
       {% include footer.html %}
     </div>
