@@ -56,3 +56,5 @@ We are interested in the crystallization potential of colloids and study it usin
   <img src="{{ site.github.url }}/assets/img/colloid/remd.png" loading="eager" style="max-width: 100%; height: auto;">
   <figcaption style="text-align: center; color: gray;">LAMMPS/Ovito: Two-body free energy of functionalized colloids at different temperatures using REMD</figcaption>
 </figure>
+
+
