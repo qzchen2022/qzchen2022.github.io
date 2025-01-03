@@ -4,6 +4,16 @@ title: Home
 ---
 
 <!-- ... existing code ... -->
+<div class="welcome-message" style="margin-top: 20px; padding: 5px;text-align: center;">
+
+  <p class="responsive-text" style="color: gray;">
+      Welcome to Qizan's website. I am a PhD student in the
+      <a href="https://jeetain.wixsite.com/mittal-lab" style="color: black; text-decoration: underline;">
+        Mittal Group
+      </a>
+    @ Texas A&M University<br>
+  </p>
+</div>
 
 <div class="image-carousel">
   <div class="carousel-container">
@@ -21,12 +31,67 @@ title: Home
       </div>
     {% endfor %}
   </div>
-  
   <button class="carousel-button prev">&#10094;</button>
   <button class="carousel-button next">&#10095;</button>
 </div>
 
+<div class="welcome-message" style="margin-top: 20px; padding: 10px;text-align: justify;">
+
+  <p class="responsive-text" style="color: gray;text-align: justify;">
+    My doctoral research focuses on using
+    <a href="{{ site.baseurl }}/simulation" style="color: black; text-decoration: underline;">
+      molecular dynamics simulations
+    </a>
+    to study the self-assembly and physical properties of various biological, chemical, and material systems as illustrated in the examples above.
+
+    I specialize in using computational methods to solve scientific problems.
+      While molecular dynamics is my primary research focus, but I also utilize 
+    <a style="color: black;">
+      quantum chemistry/DFT
+    </a>
+    and
+    <a style="color: black;">
+      finite element methods
+    </a>
+      to
+      address challenges at other scales.
+  </p>
+</div>
+
+<div class="image-row" style="display: flex; flex-wrap: wrap; justify-content: center; margin-top: 5px;">
+  <div style="flex: 1 1 45%; margin: 10px; text-align: center; max-width: 300px;">
+      <img src="{{ site.github.url }}/assets/img/QM.png" style="width: 100%; height: auto; object-fit: contain;">
+      <p style="color: gray;">ORCA/VMD: Molecular Surface Electrostatic Potential</p>
+  </div>
+  <div style="flex: 1 1 45%; margin: 10px; text-align: center; max-width: 300px;">
+      <img src="{{ site.github.url }}/assets/img/FM.png" style="width: 100%; height: auto;">
+      <p style="color: gray;">COMSOL: Poisson–Boltzmann Equation</p>
+  </div>
+</div>
+<div class="welcome-message" style="margin-top: 5px; padding: 10px;text-align: justify;"></div>
+  <p class="responsive-text"  style="color: maroon;text-align: center;">
+    I am currently seeking industrial or postdoctoral opportunities.
+    <br>
+    If you believe my skills align with your needs, please feel free to contact me.
+  </p>
+</div>
+
 <style>
+.responsive-text {
+    font-size: 1.5em;
+    color: gray;
+}
+
+@media (max-width: 768px) {
+    .responsive-text {
+        font-size: 1.2em; /* 调整移动设备上的字体大小 */
+    }
+}
+@media (max-width: 768px) {
+    .image-row div {
+        flex: 1 1 100%; /* 在移动设备上每个图片占据整行 */
+    }
+}
 .image-carousel {
   width: 100%;
   overflow: hidden;
@@ -41,22 +106,23 @@ title: Home
 .carousel-slide {
   min-width: 100%;
   position: relative;
+  box-sizing: border-box;
 }
 
 .carousel-slide img {
   width: 100%;
-  height: 400px;
-  object-fit: cover;
+  height: auto;
+  object-fit: contain;
 }
 
 .carousel-caption {
-  position: relative; /* 改为相对定位 */
+  position: relative;
   background: rgba(0, 0, 0, 0.5);
   color: white;
   padding: 20px;
-  text-align: center; /* 文字居中 */
-  margin-top: 10px; /* 添加顶部间距 */
-  border-radius: 0px; /* 添加圆角 */
+  text-align: center;
+  margin-top: 10px;
+  border-radius: 0px;
 }
 
 .carousel-button {
@@ -136,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
   prevButton.addEventListener('click', prevSlide);
 
   // 自动播放
-  let slideInterval = setInterval(nextSlide, 5000);
+  let slideInterval = setInterval(nextSlide, 2000);
 
   // 鼠标悬停时暂停自动播放
   container.addEventListener('mouseenter', () => {

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Colloidal Assembly"
+title: "Colloid Assembly & Physical Properties"
 author: "Qizan chen"
 categories: simulation
 tags: [coarse-grain MD]
