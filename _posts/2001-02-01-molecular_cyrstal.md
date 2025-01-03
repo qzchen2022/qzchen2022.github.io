@@ -40,7 +40,7 @@ In this project, we work closely with experimental groups to explore the underly
 
 ## Ab Initio Molecular Dynamics
 <figure>
-  <img src="{{ site.github.url }}/assets/img/mol/aimd.gif" loading="eager" style="max-width: 100%; height: auto;">
+  <img src="{{ site.github.url }}/assets/img/mol/AIMD.gif" loading="eager" style="max-width: 100%; height: auto;">
   <figcaption style="text-align: center; color: gray;">CP2K/Ovito: AIMD simulation of ammonium urate in aqueous solution</figcaption>
 </figure>
 
