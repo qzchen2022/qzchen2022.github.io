@@ -1,4 +1,5 @@
 .footer {
+  text-align: center;
   background: white;
   color: $brand-color;
   text-align: center;
@@ -13,6 +14,7 @@
 }
 @media (max-width: $container-width) {
   .footer {
+    text-align: center;
     background: white;
     color: $brand-color;
     text-align: center;

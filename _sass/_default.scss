@@ -68,8 +68,20 @@ footer {
     width: 95vw;
   }
   .sidebar {
-    position: static;
+    position: fixed;
+    top: auto; /* 取消顶部定位 */
+    bottom: 0; /* 默认在底部 */
+    left: 0;
     width: 100%;
     height: auto;
+    max-height: 50vh; /* 最大高度为视窗高度的50% */
+    overflow-y: auto;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    
+    &.top-position {
+      top: 0;
+      bottom: auto;
+    }
   }
 }
