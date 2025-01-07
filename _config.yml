@@ -11,7 +11,7 @@ plugins:             [jekyll-paginate, jekyll-sitemap, jekyll-feed, jekyll-seo-t
 
 # Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
 title:		           "Qizan Chen"
-description:	       "Qizan Chen's personal website showcases the visualization of his scientific computations."
+description:	       "Molecular Simulation Gallary| Ready to Work/Intern"
 author:              "Qizan Chen"
 
 # RSS 2.0 can be used instead of Atom by uncommenting following two lines
