@@ -1,6 +1,15 @@
-<footer class="footer" style="text-align: center; padding: 20px;">
-  {% for item in site.data.settings.social %}
-    <a href="{{ item.link }}" class="menu-link" target="_blank"><i class="fa fa-{{ item.icon }}" aria-hidden="true"></i></a>
-  {% endfor %}
-  <div class="footer-description"><a href="{{ site.github.url }}/">{{ site.description }}</a></div>
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-social">
+      {% for item in site.data.settings.social %}
+        <a href="{{ item.link }}" class="footer-link" target="_blank" title="{{ item.icon }}">
+          <i class="fa fa-{{ item.icon }}" aria-hidden="true"></i>
+        </a>
+      {% endfor %}
+    </div>
+    <div class="footer-description">
+      <p>{{ site.description }}</p>
+      <p style="font-size: 0.875rem; color: #999; margin-top: 0.5rem;">© 2024 Qizan Chen. All rights reserved.</p>
+    </div>
+  </div>
 </footer>

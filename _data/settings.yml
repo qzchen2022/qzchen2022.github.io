@@ -8,14 +8,13 @@ google-ID: 'G-PKCYWXB568'
 
 menu:
 - {name: 'About',              url: 'about'}
-- {name: 'Molecular Dynamics Simulation Gallery',  url: 'simulation'}
-# - {name: 'Others', url: 'other'}
-#- {name: 'Documentation',      url: 'documentation'}
-- {name: 'Contact',            url: 'contact'}
+- {name: 'Colloid Assembly',   url: 'Colloidal', anchor: true}
+- {name: 'Molecular Crystal',  url: 'molecular_cyrstal', anchor: true}
+- {name: 'Protein Phase Separation',  url: 'LLPS', anchor: true}
 
 # Available social icons are powered by Font Awesome, so you can use any icon that they offer
 social:
-- {icon: 'linkedin', link:    'https://www.linkedin.com/in/qizan-chen-1a3b13182/'}
+- {icon: 'linkedin', link:    'https://www.linkedin.com/in/qizan-chen-ph-d-1a3b13182/'}
 - {icon: 'google', link:   'https://scholar.google.com/citations?user=SynUQBoAAAAJ&hl=en'}
 #- {icon: 'instagram', link:  'https://instagram.com/paululele'}
 - {icon: 'envelope', link:   'mailto:qz.che@tamu.edu'}

@@ -1,6 +1,23 @@
 .page-content {
-  max-width: 600px;
+  max-width: 900px;
   display: block;
-  margin: 10px auto 10px;
-  padding: 0px 10px 10px;
+  margin: $spacing-lg auto;
+  padding: 0 $spacing-lg $spacing-lg;
+  line-height: $line-height-relaxed;
+}
+
+@media (max-width: $container-width) {
+  .page-content {
+    max-width: 100%;
+    margin: $spacing-lg auto;
+    padding: 0 $spacing-lg $spacing-lg;
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .page-content {
+    max-width: 100%;
+    margin: $spacing-lg auto;
+    padding: 0 $spacing-md $spacing-lg;
+  }
 }

@@ -3,6 +3,21 @@ layout: default
 title: Home
 ---
 
+<style>
+  body.home-no-sidebar .sidebar {
+    display: none !important;
+  }
+
+  body.home-no-sidebar .content-wrapper {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+</style>
+
+<script>
+  document.body.classList.add('home-no-sidebar');
+</script>
+
 <!-- Hero Section with Animated Background -->
 <section class="hero-section" style="background-image: url('{{ site.github.url }}/assets/img/top_background.png');">
   <div class="hero-background">
@@ -142,3 +157,4 @@ document.querySelectorAll('.project-card-full, .skill-item').forEach(el => {
   observer.observe(el);
 });
 </script>
+

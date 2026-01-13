@@ -49,4 +49,40 @@ document.addEventListener("DOMContentLoaded", function() {
 
         toc.appendChild(ul);
     }
+
+    // 添加滚动时的动态加粗功能
+    function updateActiveLink() {
+        const tocLinks = document.querySelectorAll('#toc a');
+        let activeLink = null;
+        let maxOffset = -Infinity;
+
+        headers.forEach(header => {
+            const rect = header.getBoundingClientRect();
+            // 检查标题是否在视口内或上方
+            if (rect.top <= window.innerHeight / 2) {
+                const offset = rect.top;
+                if (offset > maxOffset) {
+                    maxOffset = offset;
+                    activeLink = document.querySelector(`#toc a[href="#${header.id}"]`);
+                }
+            }
+        });
+
+        // 移除所有链接的 active 类
+        tocLinks.forEach(link => {
+            link.classList.remove('active');
+        });
+
+        // 为当前活跃的链接添加 active 类
+        if (activeLink) {
+            activeLink.classList.add('active');
+        }
+    }
+
+    // 监听滚动事件
+    window.addEventListener('scroll', updateActiveLink);
+    // 页面加载时初始化一次
+    setTimeout(updateActiveLink, 100);
 });
+
+

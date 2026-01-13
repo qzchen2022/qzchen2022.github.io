@@ -3,35 +3,63 @@
 */
 
 .container {
-  width: $container-width;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: $color-bg;
 }
 
 .sidebar {
-  background-color:#f4f4f4;
+  background-color: $color-bg-light;
   padding: 15px;
   position: fixed;
   top: $header-thickness + 10px;
   left: 0;
+  width: 300px;
   height: 100%;
   overflow-y: auto;
+  border-right: 1px solid $color-border;
 
   nav#toc {
     ul {
       list-style-type: none;
-      padding-left: 20px;
+      padding-left: 0;
 
       li {
-        margin-bottom: 5px;
+        margin-bottom: 8px;
 
         a {
           text-decoration: none;
           color: #333;
+          word-wrap: break-word;
+          word-break: break-word;
+          display: block;
+          padding: 4px 8px;
+          border-radius: 4px;
+          transition: all $transition-fast;
+          font-weight: 400;
 
           &:hover {
-            text-decoration: underline;
+            background-color: $color-bg-light;
+            color: $color-accent;
           }
+
+          &.active {
+            font-weight: 700;
+            color: $color-accent;
+            background-color: $color-bg-light;
+          }
+        }
+      }
+
+      ul {
+        padding-left: 16px;
+        margin-top: 4px;
+
+        li {
+          margin-bottom: 4px;
+          font-size: $font-size-sm;
         }
       }
     }
@@ -39,49 +67,57 @@
 }
 
 .content-wrapper {
-  padding-top: $header-thickness+10px;
-  margin: auto;
+  padding-top: calc(#{$header-thickness} + #{$spacing-lg});
+  margin: 0;
+  margin-left: 300px;
   display: block;
-  width: $container-width - 20px;
+  width: calc(100% - 300px);
+  flex: 1;
+  background-color: #ffffff;
 }
 
 .content-wrapper h1 {
-  margin: 20px 0px 5px;
+  margin: $spacing-lg 0 $spacing-sm;
 }
 
 footer {
-  background-color: #f4f4f4;
-  padding: 10px;
+  background-color: $color-bg-light;
+  padding: $spacing-2xl $spacing-lg;
   text-align: center;
   width: 100%;
+  border-top: 1px solid $color-border;
+  margin-top: auto;
 }
 
 @media (max-width: $container-width) {
   .container {
-    width: 95vw;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
   }
   .content-wrapper {
-    padding-top: $header-thickness + 10px;
+    padding-top: calc(#{$header-thickness} + #{$spacing-lg});
     margin-left: 0;
-    width: 95vw;
+    width: 100%;
+    background-color: #ffffff;
   }
   .sidebar {
     position: fixed;
-    top: auto; /* 取消顶部定位 */
-    bottom: 0; /* 默认在底部 */
+    top: auto;
+    bottom: 0;
     left: 0;
     width: 100%;
     height: auto;
-    max-height: 50vh; /* 最大高度为视窗高度的50% */
+    max-height: 50vh;
     overflow-y: auto;
     z-index: 1000;
-    transition: all 0.3s ease;
-    
+    transition: all $transition-base;
+    border-right: none;
+    border-top: 1px solid $color-border;
+
     &.top-position {
       top: 0;
       bottom: auto;
+      border-top: none;
+      border-right: none;
     }
   }
 }

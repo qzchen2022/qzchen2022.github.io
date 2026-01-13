@@ -1,56 +1,91 @@
 .post-content {
-  width: 600px;
+  width: 100%;
+  max-width: 900px;
   display: block;
-  margin: 10px auto 10px;
+  margin: $spacing-lg auto;
+  line-height: $line-height-relaxed;
+  padding: 0 $spacing-lg;
+  background-color: #ffffff;
 }
+
 .post-date {
   display: block;
-  margin-bottom: 1rem;
-  color: #9a9a9a;
-  font-size:0.8rem;
+  margin-bottom: $spacing-lg;
+  color: $color-text-light;
+  font-size: $font-size-sm;
 }
+
 .featured-image {
-  width: 100%; // 使图片宽度占满父容器
-  max-width: 100%; // 确保不会超出容器
-  height: auto; // 保持图片比例
-  display: block; // 确保图片是块级元素
-  object-fit:cover;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  border-radius: 12px;
+  margin: $spacing-lg 0;
+
   img {
     width: 100%;
     height: auto;
+    border-radius: 12px;
   }
 }
+
 @media (max-width: $container-width) {
   .post-content {
-    width: 60vw;
+    width: 100%;
+    max-width: 100%;
     display: block;
-    margin: 10px auto 10px;
+    margin: $spacing-lg auto;
+    padding: 0 $spacing-lg;
   }
+
   .featured-image img {
-    align: middle;
-    margin: 5px auto 25px;
+    margin: $spacing-lg auto;
     display: block;
-    max-width: 60vw;
+    max-width: 100%;
   }
 }
+
 @media (max-width: $tablet-width) {
   .post-content {
-    width: 95vw;
+    width: 100%;
+    max-width: 100%;
     display: block;
-    margin: 10px auto 10px;
+    margin: $spacing-lg auto;
+    padding: 0 $spacing-md;
   }
+
   .featured-image img {
-    align: middle;
-    margin: 5px auto 25px;
+    margin: $spacing-lg auto;
     display: block;
-    max-width: 95vw;
+    max-width: 100%;
   }
 }
+
 .post-share {
-  padding-bottom: 1rem;
+  padding: $spacing-lg 0;
+  border-top: 1px solid $color-border;
+  border-bottom: 1px solid $color-border;
+  margin: $spacing-lg 0;
 }
+
 .sharing-icons a {
-  padding-right: 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin-right: $spacing-md;
+  border-radius: 50%;
+  background-color: $color-bg-light;
+  color: $color-text;
+  transition: all $transition-fast;
+
+  &:hover {
+    background-color: $color-accent;
+    color: white;
+  }
 }
 
 /*
@@ -58,45 +93,67 @@
 */
 
 .related {
-  padding-bottom: 1rem;
+  padding: $spacing-lg 0;
+  margin-top: $spacing-2xl;
+  border-top: 1px solid $color-border;
 }
+
 .related ul, ol, dl {
-  margin: 0px;
+  margin: 0;
 }
+
 .related-posts {
-  padding: 10px 0px 10px;
+  padding: $spacing-lg 0;
   list-style: none;
-  display: inline-block;
+  display: block;
 }
+
+.related-posts li {
+  margin-bottom: $spacing-lg;
+}
+
 .related-thumbnail {
   position: relative;
-  width: 600px;
+  width: 100%;
   height: 200px;
   overflow: hidden;
+  border-radius: 12px;
+  background-color: $color-bg-light;
 }
+
 .related img {
   position: absolute;
   left: 50%;
   top: 50%;
   height: auto;
-  width: 600px;
-  -webkit-transform: translate(-50%,-50%);
-      -ms-transform: translate(-50%,-50%);
-          transform: translate(-50%,-50%);
+  width: 100%;
+  transform: translate(-50%, -50%);
 }
+
 .related-title {
-  float: right;
-  padding-bottom: .5rem;
+  padding: $spacing-md 0;
   font-family: $base-font-family;
+  font-weight: 600;
+  color: $color-text;
 }
-@media (max-width: $container-width) {
-  .related-thumbnail{
-    width: 60vw;
-  }
-}
-@media (max-width: $tablet-width) {
-  .related-thumbnail{
-    width: 95vw;
+
+.related-title a {
+  color: $color-accent;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: darken($color-accent, 10%);
   }
 }
 
+@media (max-width: $container-width) {
+  .related-thumbnail {
+    width: 70vw;
+  }
+}
+
+@media (max-width: $tablet-width) {
+  .related-thumbnail {
+    width: 95vw;
+  }
+}

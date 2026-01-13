@@ -1,0 +1,28 @@
+---
+layout: default
+---
+
+<style>
+  body.no-sidebar .sidebar {
+    display: none !important;
+  }
+
+  body.no-sidebar .content-wrapper {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+</style>
+
+<script>
+  document.body.classList.add('no-sidebar');
+</script>
+
+<div class="page-content">
+  <h1>
+    {{ page.title }}
+  </h1>
+  <article>
+    {{ content }}
+  </article>
+</div>
+
