@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Colloid Assembly & Physical Properties"
+title: "Functionalized colloids and material properties"
 author: "Qizan chen"
 categories: simulation
 tags: [coarse-grain MD]

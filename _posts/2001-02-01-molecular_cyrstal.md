@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Molecular Crystal"
+title: "Molecular crystallization and modifer design"
 author: "Qizan chen"
 categories: simulation
 tags: [coarse-grain MD]
