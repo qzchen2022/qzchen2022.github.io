@@ -473,3 +473,115 @@
     font-size: $font-size-base;
   }
 }
+
+@media (max-width: $mobile-width) {
+  .hero-section {
+    padding: $spacing-lg $spacing-sm;
+    min-height: 45vh;
+  }
+
+  .hero-title {
+    font-size: $font-size-xl;
+  }
+
+  .hero-subtitle {
+    font-size: $font-size-sm;
+  }
+
+  .hero-subtitle-secondary {
+    font-size: $font-size-sm;
+  }
+
+  .hero-cta {
+    padding: $spacing-sm $spacing-md;
+    font-size: $font-size-sm;
+  }
+
+  .project-card-full {
+    padding: $spacing-md $spacing-sm;
+    border-bottom: $spacing-sm solid white;
+  }
+
+  .project-image-wrapper {
+    height: 200px;
+  }
+
+  .project-title {
+    font-size: $font-size-lg;
+  }
+
+  .project-description {
+    font-size: $font-size-sm;
+  }
+
+  .section-title {
+    font-size: $font-size-lg;
+  }
+
+  .cta-title {
+    font-size: $font-size-lg;
+  }
+
+  .cta-description {
+    font-size: $font-size-sm;
+  }
+}
+
+@media (max-width: $phone-width) {
+  .hero-section {
+    padding: $spacing-md $spacing-xs;
+    min-height: 40vh;
+  }
+
+  .hero-title {
+    font-size: $font-size-lg;
+  }
+
+  .hero-subtitle {
+    font-size: 0.875rem;
+  }
+
+  .hero-subtitle-secondary {
+    font-size: 0.875rem;
+  }
+
+  .project-card-full {
+    padding: $spacing-sm $spacing-xs;
+  }
+
+  .project-image-wrapper {
+    height: 150px;
+  }
+
+  .project-title {
+    font-size: $font-size-base;
+  }
+
+  .project-description {
+    font-size: 0.875rem;
+  }
+
+  .section-title {
+    font-size: $font-size-base;
+  }
+
+  .cta-title {
+    font-size: $font-size-base;
+  }
+
+  .cta-description {
+    font-size: 0.875rem;
+  }
+
+  .skill-item {
+    padding: $spacing-sm;
+  }
+
+  .skill-title {
+    font-size: 0.875rem;
+  }
+
+  .skill-description {
+    font-size: 0.75rem;
+  }
+}

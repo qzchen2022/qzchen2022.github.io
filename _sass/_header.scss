@@ -175,3 +175,45 @@
     color: $color-accent;
   }
 }
+
+@media (max-width: $mobile-width) {
+  .site-title {
+    font-size: $font-size-base;
+  }
+
+  .dropbtn {
+    padding: $spacing-xs;
+    font-size: $font-size-base;
+  }
+
+  .dropdown-content {
+    min-width: 150px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  }
+
+  .dropdown-content a {
+    padding: $spacing-sm $spacing-md;
+    font-size: $font-size-sm;
+  }
+}
+
+@media (max-width: $phone-width) {
+  .site-title {
+    font-size: $font-size-sm;
+  }
+
+  .dropbtn {
+    padding: 4px;
+    font-size: $font-size-sm;
+  }
+
+  .dropdown-content {
+    min-width: 120px;
+    right: -10px;
+  }
+
+  .dropdown-content a {
+    padding: $spacing-xs $spacing-sm;
+    font-size: 0.875rem;
+  }
+}

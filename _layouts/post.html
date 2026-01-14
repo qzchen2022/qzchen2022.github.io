@@ -37,30 +37,25 @@ layout: default
 </div>
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    if (window.innerWidth <= 768) { // 只在移动端执行
-      const sidebar = document.querySelector('.sidebar');
-      const content = document.querySelector('.content-wrapper');
-      
+    const sidebar = document.querySelector('.sidebar');
+
+    if (window.innerWidth <= 768) {
       function adjustSidebarPosition() {
         const scrollPosition = window.scrollY;
         const windowHeight = window.innerHeight;
         const documentHeight = document.documentElement.scrollHeight;
-        const bottomThreshold = 100; // 距离底部的阈值
-        
-        // 检查是否接近页面底部
+        const bottomThreshold = 100;
+
         if (scrollPosition + windowHeight >= documentHeight - bottomThreshold) {
           sidebar.classList.add('top-position');
         } else {
           sidebar.classList.remove('top-position');
         }
       }
-      
-      // 监听滚动事件
+
       window.addEventListener('scroll', adjustSidebarPosition);
       window.addEventListener('resize', adjustSidebarPosition);
-      
-      // 初始检查位置
       adjustSidebarPosition();
     }
   });
-  </script>
+</script>
