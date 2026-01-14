@@ -16,19 +16,20 @@ In this project, we work closely with experimental groups to explore the underly
 ## Solvent-Modifier Complex
 <figure>
   <img src="{{ site.github.url }}/assets/img/mol/assembly.gif" loading="eager" style="max-width: 100%; height: auto;">
-  <img src="{{ site.github.url }}/assets/img/mol/assembly2.gif" loading="eager" style="max-width: 100%; height: auto;">
   <figcaption style="text-align: center; color: gray;">GROMACS/Ovito: Assembly of ammonium urate and riboflavin</figcaption>
 </figure>
 
 ## Adsorption
 <figure>
+  <img src="{{ site.github.url }}/assets/img/mol/assembly2.gif" loading="eager" style="max-width: 100%; height: auto;">
+  <figcaption style="text-align: center; color: gray;">GROMACS/Ovito: Self-assembly of molecules and modifers on the crystal surface</figcaption>
   <img src="{{ site.github.url }}/assets/img/mol/adsoprtion.gif" loading="eager" style="max-width: 100%; height: auto;">
   <figcaption style="text-align: center; color: gray;">GROMACS/PLUMED/Ovito: Single molecule adsorption sampling using Metadynamics</figcaption>
 </figure>
 
 ## Concentration Control (CμMD)
 <figure style="max-width: 70%; margin: auto; padding: 10px;">
-  <img src="{{ site.github.url }}/assets/img/mol/cmumd.gif" loading="eager" style="width: 100%; height: auto; display: block;">
+  <img src="{{ site.github.url }}/assets/img/mol/cmumd.gif" loading="eager" style="width: 100%; height: auto; display: block; transform: rotate(90deg);">
   <figcaption style="text-align: center; color: gray;">GROMACS/PLUMED/Ovito: Using CμMD to control concentration in different regions</figcaption>
 </figure>
 

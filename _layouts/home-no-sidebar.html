@@ -11,6 +11,7 @@ title: Home
   body.home-no-sidebar .content-wrapper {
     margin-left: 0 !important;
     width: 100% !important;
+    padding-top: 0 !important;
   }
 </style>
 
@@ -31,7 +32,7 @@ title: Home
   <div class="hero-content">
     <h1 class="hero-title">Qizan Chen</h1>
     <p class="hero-subtitle">
-      PhD focused on computational science
+      PhD candidate specializing in Scientific Computing
     </p>
     <p class="hero-subtitle-secondary">
       <a href="https://jeetain.wixsite.com/mittal-lab" style="color: #0071e3;">Mittal Group</a> @ Texas A&M University
@@ -42,20 +43,20 @@ title: Home
 
 <!-- Projects Section - Full Width -->
 <section class="projects-section" id="projects">
-  <h2 class="section-title">Recent Research Projects</h2>
+  <h2 class="section-title">Recent Molecular Dynamics Research Projects</h2>
 
-  <!-- Colloid Assembly Project -->
-  <div class="project-card-full" onclick="window.location.href='{{ site.github.url }}/Colloidal'">
+  <!-- Protein/RNA Phase Separation Project -->
+  <div class="project-card-full" onclick="window.location.href='{{ site.github.url }}/LLPS'">
     <div class="project-card-container">
       <div class="project-image-wrapper">
-        <img src="{{ site.github.url }}/assets/img/Colloid_big.png" alt="Colloid Assembly" class="project-image">
+        <img src="{{ site.github.url }}/assets/img/Protein_big.png" alt="Protein/RNA Phase Separation" class="project-image">
       </div>
       <div class="project-content">
-        <h3 class="project-title">Colloid Assembly & Physical Properties</h3>
+        <h3 class="project-title">Protein phase separation</h3>
         <p class="project-description">
-          Crystallization potential of colloids using coarse-grained modeling and inverse design approaches. Study of colloidal physical properties and free energy.
+          Multiscale simulations to uncover the molecular language underlying protein phase separation between dilute and dense phases, further exploring how nucleic acids and other molecules regulate protein-free phase separation.
         </p>
-        <a href="{{ site.github.url }}/Colloidal" class="project-link">View Project →</a>
+        <a href="{{ site.github.url }}/LLPS" class="project-link">View Project →</a>
       </div>
     </div>
   </div>
@@ -67,27 +68,27 @@ title: Home
         <img src="{{ site.github.url }}/assets/img/Mol_big.png" alt="Molecular Crystal" class="project-image">
       </div>
       <div class="project-content">
-        <h3 class="project-title">Molecular Crystal</h3>
+        <h3 class="project-title">Molecular crystallization and modifer design</h3>
         <p class="project-description">
-          Molecular imposters as crystal growth modifiers. Interactions between solvent, additives, and crystal surfaces using MD and DFT/AIMD.
+          Modeling and simulation of crystal interfaces to reveal molecular adsorption mechanisms, enabling the development of crystal growth modifier.
         </p>
         <a href="{{ site.github.url }}/molecular_cyrstal" class="project-link">View Project →</a>
       </div>
     </div>
   </div>
 
-  <!-- Protein/RNA Phase Separation Project -->
-  <div class="project-card-full" onclick="window.location.href='{{ site.github.url }}/LLPS'">
+  <!-- Colloid Assembly Project -->
+  <div class="project-card-full" onclick="window.location.href='{{ site.github.url }}/Colloidal'">
     <div class="project-card-container">
       <div class="project-image-wrapper">
-        <img src="{{ site.github.url }}/assets/img/Protein_big.png" alt="Protein/RNA Phase Separation" class="project-image">
+        <img src="{{ site.github.url }}/assets/img/Colloid_big.png" alt="Colloid Assembly" class="project-image">
       </div>
       <div class="project-content">
-        <h3 class="project-title">Protein/RNA Phase Separation</h3>
+        <h3 class="project-title">Functionalized colloids and material properties</h3>
         <p class="project-description">
-          Phase separation of intrinsically disordered proteins (IDPs). TDP-43 interactions with RNA and drug molecules using coarse-grained and all-atom simulations.
+          Design of forward- and reverse-functionalized DNA/polymer colloids to control self-assembly, thereby tuning crystallization and material properties.
         </p>
-        <a href="{{ site.github.url }}/LLPS" class="project-link">View Project →</a>
+        <a href="{{ site.github.url }}/Colloidal" class="project-link">View Project →</a>
       </div>
     </div>
   </div>
@@ -100,12 +101,12 @@ title: Home
     <a href="https://doi.org/10.1016/j.jcat.2020.02.024" target="_blank" class="skill-item">
       <img src="{{ site.github.url }}/assets/img/QM.png" alt="Quantum Chemistry" class="skill-image">
       <h3 class="skill-title">Quantum Chemistry</h3>
-      <p class="skill-description">ORCA/VMD: Molecular Surface Electrostatic Potential and DFT calculations</p>
+      <p class="skill-description">ORCA: DFT-calculated computed Molecular Surface Electrostatic Potential</p>
     </a>
     <a href="https://journals.aps.org/pre/abstract/10.1103/PhysRevE.103.042906" target="_blank" class="skill-item">
       <img src="{{ site.github.url }}/assets/img/FM.png" alt="Finite Element Methods" class="skill-image">
       <h3 class="skill-title">Finite Element Methods</h3>
-      <p class="skill-description">COMSOL: Poisson–Boltzmann Equation and multiphysics simulations</p>
+      <p class="skill-description">COMSOL: Poisson–Boltzmann Equation</p>
     </a>
   </div>
 </section>

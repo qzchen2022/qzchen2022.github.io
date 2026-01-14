@@ -8,6 +8,29 @@
   background-color: #ffffff;
 }
 
+.post-content h1 {
+  text-align: center;
+}
+
+article {
+  color: #000000;
+  font-size: 20px;
+}
+
+article img {
+  max-width: 600px;
+  max-height: 600px;
+  width: auto;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+article p {
+  color: #333333 !important;
+  font-size: 20px;
+}
+
 .post-date {
   display: block;
   margin-bottom: $spacing-lg;
@@ -155,5 +178,24 @@
 @media (max-width: $tablet-width) {
   .related-thumbnail {
     width: 95vw;
+  }
+}
+
+.back-to-home {
+  text-align: center;
+  padding: $spacing-2xl 0;
+  margin-top: $spacing-2xl;
+  border-top: 1px solid $color-border;
+}
+
+.back-to-home a {
+  color: $color-accent;
+  font-weight: 600;
+  font-size: $font-size-lg;
+  transition: all $transition-fast;
+
+  &:hover {
+    color: darken($color-accent, 10%);
+    transform: translateX(-4px);
   }
 }

@@ -3,9 +3,9 @@
 */
 .hero-section {
   position: relative;
-  padding: $spacing-2xl $spacing-lg;
+  padding: $spacing-2xl calc(#{$spacing-lg});
   text-align: center;
-  min-height: 70vh;
+  min-height: 75vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -199,7 +199,7 @@
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   gap: $spacing-2xl;
   align-items: center;
 }
