@@ -59,14 +59,16 @@
   padding: $spacing-xs $spacing-sm;
   font-size: $font-size-lg;
   color: $color-text;
-  transition: color $transition-fast;
+  transition: all $transition-fast;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   font-weight: 400;
+  position: relative;
 
   &:hover {
     color: $color-accent;
+    transform: translateY(-1px);
   }
 
   &.active {

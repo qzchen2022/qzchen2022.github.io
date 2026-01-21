@@ -10,10 +10,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-size: 60%;
-  background-position: center;
+  background-size: contain;
+  background-position: center bottom -75px;
   background-repeat: no-repeat;
-  background-attachment: fixed;
+  background-attachment: scroll;
   overflow: hidden;
 }
 
@@ -97,15 +97,20 @@
 }
 
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translate(0, 0) scale(1) rotate(0deg);
   }
+
   25% {
     transform: translate(-60px, 80px) scale(1.1) rotate(90deg);
   }
+
   50% {
     transform: translate(70px, -60px) scale(0.9) rotate(180deg);
   }
+
   75% {
     transform: translate(-40px, 50px) scale(1.05) rotate(270deg);
   }
@@ -152,17 +157,23 @@
 .hero-cta {
   display: inline-block;
   padding: $spacing-md $spacing-lg;
-  background-color: $color-accent;
+  background: $gradient-accent;
   color: white;
   border-radius: 8px;
   font-weight: 600;
   transition: all $transition-base;
   cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 113, 227, 0.25);
 
   &:hover {
-    background-color: darken($color-accent, 10%);
+    background: $gradient-hover;
     transform: translateY(-2px);
-    box-shadow: 0 10px 25px rgba(0, 113, 227, 0.3);
+    box-shadow: 0 10px 25px rgba(0, 113, 227, 0.35);
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 }
 
@@ -185,6 +196,7 @@
   cursor: pointer;
   transition: all $transition-base;
   border-bottom: $spacing-lg solid white;
+  position: relative;
 
   &:last-child {
     border-bottom: none;
@@ -192,6 +204,7 @@
 
   &:hover {
     background-color: #ffffff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   }
 }
 
@@ -213,6 +226,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transition: all $transition-base;
+
+  .project-card-full:hover & {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+  }
 }
 
 .project-image {
@@ -238,6 +257,7 @@
   margin-bottom: $spacing-md;
   color: $color-text;
   line-height: $line-height-tight;
+  word-break: break-word;
 }
 
 .project-description {
@@ -254,10 +274,26 @@
   font-size: $font-size-base;
   transition: all $transition-fast;
   padding: $spacing-sm 0;
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: $color-accent;
+    transition: width $transition-fast;
+  }
 
   &:hover {
-    color: darken($color-accent, 10%);
+    color: $color-accent-dark;
     transform: translateX(4px);
+
+    &::after {
+      width: 100%;
+    }
   }
 }
 
@@ -278,6 +314,7 @@
   font-weight: 600;
   font-size: $font-size-base;
 }
+
 .skills-section {
   padding: 0;
   background-color: $color-bg;
@@ -307,11 +344,13 @@
   display: block;
   text-decoration: none;
   color: inherit;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 
   &:hover {
     border-color: $color-accent;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 113, 227, 0.12);
+    transform: translateY(-6px);
+    background: linear-gradient(135deg, #ffffff 0%, $color-accent-light 100%);
   }
 }
 
@@ -363,17 +402,23 @@
 .cta-button {
   display: inline-block;
   padding: $spacing-md $spacing-lg;
-  background-color: $color-accent;
+  background: $gradient-accent;
   color: white;
   border-radius: 8px;
   font-weight: 600;
   transition: all $transition-base;
   cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 113, 227, 0.25);
 
   &:hover {
-    background-color: lighten($color-accent, 10%);
+    background: $gradient-hover;
     transform: translateY(-2px);
     box-shadow: 0 10px 25px rgba(0, 113, 227, 0.4);
+  }
+
+  &:active {
+    transform: translateY(0);
   }
 }
 
@@ -395,14 +440,23 @@
   padding: $spacing-md $spacing-lg;
   margin: $spacing-sm;
   display: inline-block;
-  font-size: $font-size-base;
-  font-weight: 600;
   border-radius: 8px;
   transition: all $transition-fast;
+  background-color: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 
   &:hover {
     border-color: $color-accent;
     color: $color-accent;
+    box-shadow: 0 4px 12px rgba(0, 113, 227, 0.15);
+    transform: translateY(-2px);
+  }
+
+  &.active {
+    background: $gradient-accent;
+    color: white;
+    border-color: $color-accent;
+    box-shadow: 0 4px 12px rgba(0, 113, 227, 0.25);
   }
 }
 
@@ -424,6 +478,38 @@
   .hero-section {
     padding: $spacing-xl $spacing-md;
     min-height: 50vh;
+    background-size: 80%;
+    background-position: center bottom -30px;
+  }
+
+  .blob-1 {
+    width: 200px;
+    height: 200px;
+  }
+
+  .blob-2 {
+    width: 170px;
+    height: 170px;
+  }
+
+  .blob-3 {
+    width: 140px;
+    height: 140px;
+  }
+
+  .blob-4 {
+    width: 190px;
+    height: 190px;
+  }
+
+  .blob-5 {
+    width: 150px;
+    height: 150px;
+  }
+
+  .blob-6 {
+    width: 180px;
+    height: 180px;
   }
 
   .hero-title {
@@ -478,6 +564,38 @@
   .hero-section {
     padding: $spacing-lg $spacing-sm;
     min-height: 45vh;
+    background-size: 100%;
+    background-position: center bottom -15px;
+  }
+
+  .blob-1 {
+    width: 120px;
+    height: 120px;
+  }
+
+  .blob-2 {
+    width: 100px;
+    height: 100px;
+  }
+
+  .blob-3 {
+    width: 80px;
+    height: 80px;
+  }
+
+  .blob-4 {
+    width: 110px;
+    height: 110px;
+  }
+
+  .blob-5 {
+    width: 90px;
+    height: 90px;
+  }
+
+  .blob-6 {
+    width: 100px;
+    height: 100px;
   }
 
   .hero-title {
@@ -531,6 +649,7 @@
   .hero-section {
     padding: $spacing-md $spacing-xs;
     min-height: 40vh;
+    background-size: 120%;
   }
 
   .hero-title {

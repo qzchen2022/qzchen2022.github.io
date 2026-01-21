@@ -29,12 +29,14 @@
   color: $color-text;
   transition: all $transition-fast;
   border: 1px solid $color-border;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 
   &:hover {
-    background-color: $color-accent;
+    background: $gradient-accent;
     color: white;
     border-color: $color-accent;
-    transform: translateY(-4px);
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0, 113, 227, 0.25);
   }
 
   i {
