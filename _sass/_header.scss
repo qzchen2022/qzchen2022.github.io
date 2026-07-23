@@ -1,9 +1,12 @@
 .site-header {
-  min-height: 56px;
+  min-height: 60px;
   width: 100%;
   position: fixed;
-  background-color: rgba(245, 245, 247, 0.95);
-  backdrop-filter: blur(10px);
+  top: 0;
+  left: 0;
+  background-color: rgba(244, 241, 234, 0.82);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
   border-bottom: 1px solid $color-border;
   z-index: 100;
   display: flex;
@@ -14,17 +17,7 @@
 }
 
 @media (max-width: $container-width) {
-  .site-header {
-    min-height: 56px;
-    width: 100%;
-    position: fixed;
-    background-color: rgba(245, 245, 247, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid $color-border;
-    z-index: 100;
-    padding: 0 $spacing-md;
-    box-sizing: border-box;
-  }
+  .site-header { padding: 0 $spacing-md; }
 }
 
 .site-header a {
@@ -32,61 +25,82 @@
   color: $color-text;
   transition: color $transition-fast;
 
-  &:hover {
-    color: $color-accent;
-  }
+  &:hover { color: $color-accent-dark; }
 }
 
 .site-title {
-  font-size: $font-size-lg;
+  font-family: $base-font-family;
+  font-size: 1.02rem;
   font-weight: 600;
-  line-height: 56px;
-  margin-bottom: 0;
-  margin-top: 0;
+  letter-spacing: -0.01em;
+  line-height: 60px;
+  margin: 0;
   padding: 0;
   color: $color-text;
+
+  a { display: inline-flex; align-items: center; gap: 0.5em; }
+
+  &::before {
+    content: "";
+    display: inline-block;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: $color-accent;
+    margin-right: 0.15em;
+    vertical-align: middle;
+  }
 }
 
 .menu-list {
-  line-height: $header-thickness;
+  line-height: 60px;
   display: flex;
-  gap: $spacing-md;
+  gap: 0.35rem;
   align-items: center;
   flex-wrap: wrap;
 }
 
 .menu-link {
-  padding: $spacing-xs $spacing-sm;
-  font-size: $font-size-lg;
-  color: $color-text;
-  transition: all $transition-fast;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.92rem;
+  font-weight: 450;
+  color: $color-text-light;
+  transition: color $transition-fast;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-weight: 400;
   position: relative;
 
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0.7rem;
+    right: 0.7rem;
+    bottom: 0.9rem;
+    height: 1.5px;
+    background: $color-accent;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform $transition-base;
+  }
+
   &:hover {
-    color: $color-accent;
-    transform: translateY(-1px);
+    color: $color-text;
+    &::after { transform: scaleX(1); }
   }
 
   &.active {
-    font-weight: 700;
-    color: $color-accent;
+    color: $color-accent-dark;
+    font-weight: 600;
+    &::after { transform: scaleX(1); }
   }
 
-  i {
-    font-size: $font-size-lg;
-  }
+  i { font-size: 1rem; }
 }
 
 .menu-separator {
-  color: $color-text-light;
-  padding: 0 $spacing-sm;
-  font-weight: 600;
-  font-size: $font-size-base;
-  opacity: 0.6;
+  color: $color-border;
+  padding: 0 0.4rem;
+  font-weight: 400;
+  user-select: none;
 }
 
 .molecular-link {
@@ -94,128 +108,71 @@
   padding: 5px 10px;
   color: black;
 }
-/*
-  Responsiveness with a dropdown menu
-*/
 
+/* ---------- responsive dropdown ---------- */
 @media (min-width: $container-width) {
-  .dropbtn {
-    display: none;
-  }
-  .dropdown-content {
-    display: none;
-  }
+  .dropbtn, .dropdown-content { display: none; }
 }
 
 @media (max-width: $container-width) {
-  .menu-list {
-    display: none;
-  }
-
-  .site-title {
-    padding-right: 0;
-  }
+  .menu-list { display: none; }
+  .site-title { padding-right: 0; }
 
   .dropbtn {
     background-color: transparent;
     color: $color-text;
     padding: $spacing-sm;
     margin: 0;
-    font-size: $font-size-lg;
+    font-size: 1.2rem;
     border: none;
     cursor: pointer;
     transition: color $transition-fast;
 
-    &:hover {
-      color: $color-accent;
-    }
+    &:hover { color: $color-accent-dark; }
   }
 
-  .dropdown {
-    position: relative;
-    display: inline-block;
-  }
+  .dropdown { position: relative; display: inline-block; }
 
   .dropdown-content {
     display: none;
     position: absolute;
-    background-color: $color-bg;
-    min-width: 200px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background-color: $color-bg-lighter;
+    min-width: 220px;
+    box-shadow: $shadow-lg;
     z-index: 1;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
     top: 100%;
     right: 0;
+    border: 1px solid $color-border;
+    padding: 0.4rem;
   }
 
   .dropdown-content a {
     color: $color-text;
-    padding: $spacing-md $spacing-lg;
+    padding: 0.7rem 1rem;
     text-decoration: none;
     display: block;
-    transition: background-color $transition-fast;
-    font-weight: 400;
+    border-radius: 8px;
+    transition: background-color $transition-fast, color $transition-fast;
+    font-weight: 450;
 
-    &:hover {
-      background-color: $color-bg-light;
-      color: $color-accent;
-    }
+    &::after { display: none; }
 
-    &.active {
-      font-weight: 700;
-      color: $color-accent;
-      background-color: $color-bg-light;
-    }
+    &:hover { background-color: $color-accent-light; color: $color-accent-dark; }
+    &.active { font-weight: 600; color: $color-accent-dark; background-color: $color-accent-light; }
   }
 
-  .dropdown:hover .dropdown-content {
-    display: block;
-  }
-
-  .dropdown:hover .dropbtn {
-    color: $color-accent;
-  }
+  .dropdown:hover .dropdown-content { display: block; }
+  .dropdown:hover .dropbtn { color: $color-accent-dark; }
 }
 
 @media (max-width: $mobile-width) {
-  .site-title {
-    font-size: $font-size-base;
-  }
-
-  .dropbtn {
-    padding: $spacing-xs;
-    font-size: $font-size-base;
-  }
-
-  .dropdown-content {
-    min-width: 150px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-  }
-
-  .dropdown-content a {
-    padding: $spacing-sm $spacing-md;
-    font-size: $font-size-sm;
-  }
+  .site-title { font-size: 0.95rem; }
+  .dropbtn { padding: $spacing-xs; font-size: 1.1rem; }
+  .dropdown-content { min-width: 180px; }
 }
 
 @media (max-width: $phone-width) {
-  .site-title {
-    font-size: $font-size-sm;
-  }
-
-  .dropbtn {
-    padding: 4px;
-    font-size: $font-size-sm;
-  }
-
-  .dropdown-content {
-    min-width: 120px;
-    right: -10px;
-  }
-
-  .dropdown-content a {
-    padding: $spacing-xs $spacing-sm;
-    font-size: 0.875rem;
-  }
+  .dropdown-content { min-width: 160px; right: -6px; }
 }

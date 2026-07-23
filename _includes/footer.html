@@ -1,15 +1,27 @@
 <footer class="footer">
   <div class="footer-content">
+    <div class="footer-brand">
+      <p class="footer-name">Qizan Chen</p>
+      <p class="footer-tagline">Scientific computing · Molecular dynamics</p>
+    </div>
+
+    <nav class="footer-nav">
+      {% for item in site.data.settings.menu %}
+        <a href="{{ site.github.url }}/{{ item.url }}">{{ item.name }}</a>
+      {% endfor %}
+    </nav>
+
     <div class="footer-social">
       {% for item in site.data.settings.social %}
-        <a href="{{ item.link }}" class="footer-link" target="_blank" title="{{ item.icon }}">
+        <a href="{{ item.link }}" class="footer-link" target="_blank" rel="noopener" title="{{ item.icon }}" aria-label="{{ item.icon }}">
           <i class="fa fa-{{ item.icon }}" aria-hidden="true"></i>
         </a>
       {% endfor %}
     </div>
-    <div class="footer-description">
-      <p>{{ site.description }}</p>
-      <p style="font-size: 0.875rem; color: #999; margin-top: 0.5rem;">© 2024 Qizan Chen. All rights reserved.</p>
-    </div>
+  </div>
+
+  <div class="footer-base">
+    <span>© 2026 Qizan Chen</span>
+    <span>Built with Jekyll · Hosted on GitHub Pages</span>
   </div>
 </footer>

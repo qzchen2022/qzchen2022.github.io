@@ -43,7 +43,7 @@ We are interested in the crystallization potential of colloids and study it usin
   <figcaption style="text-align: center; color: gray;">LAMMPS/Ovito: Self-assembly of functionalized colloids under shear deformation</figcaption>
 </figure>
 
-### Streching
+### Stretching
 
 <figure>
   <img src="{{ site.github.url }}/assets/img/colloid/streching.gif" loading="eager" style="max-width: 100%; height: auto;">

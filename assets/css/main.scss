@@ -2,9 +2,11 @@
 ---
 
 // Base fonts
-$base-font-family: 'Roboto', sans-serif;
-$body-font-family: 'Roboto', sans-serif;
-$code-font-family: "Source Code Pro", monospace;
+$base-font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+$body-font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+$display-font-family: 'Fraunces', Georgia, 'Times New Roman', serif;
+$mono-font-family: 'IBM Plex Mono', 'Source Code Pro', monospace;
+$code-font-family: 'IBM Plex Mono', "Source Code Pro", monospace;
 
 // Legacy brand color (kept for compatibility)
 $brand-color: black;

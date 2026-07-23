@@ -1,26 +1,29 @@
 /*
-  Modern Design System - Apple-inspired minimalism
+  Design System — "Research Notebook"
+  Warm paper · ink type · a single confident teal accent
+  Fraunces (display serif) + IBM Plex Sans (text) + IBM Plex Mono (labels)
 */
 
 // Color palette
-$color-primary: #000;
-$color-secondary: #555;
-$color-text: #1d1d1d;
-$color-text-light: #666;
-$color-text-lighter: #999;
-$color-bg: #f5f5f7;
-$color-bg-light: #efefef;
-$color-bg-lighter: #fafafa;
-$color-border: #e5e5e7;
-$color-border-light: #f0f0f0;
-$color-accent: #0071e3;
-$color-accent-light: #e8f1ff;
-$color-accent-dark: #0056b3;
+$color-primary: #17140f;          // ink
+$color-secondary: #3a352d;
+$color-text: #1c1913;             // primary text ink
+$color-text-light: #6a6357;       // muted body
+$color-text-lighter: #97907f;     // faint / meta
+$color-bg: #f4f1ea;               // warm paper
+$color-bg-light: #ece8de;
+$color-bg-lighter: #faf8f2;
+$color-border: #e2ddd0;           // hairline on paper
+$color-border-light: #ece8dd;
+$color-accent: #0f7c6c;           // deep teal
+$color-accent-light: #e2efeb;     // teal tint surface
+$color-accent-dark: #0a5e51;      // teal hover/pressed
+$color-surface: #ffffff;
 
 // Gradient definitions
-$gradient-subtle: linear-gradient(135deg, #f5f5f7 0%, #fafafa 100%);
-$gradient-accent: linear-gradient(135deg, #0071e3 0%, #0056b3 100%);
-$gradient-hover: linear-gradient(135deg, #0056b3 0%, #003d82 100%);
+$gradient-subtle: linear-gradient(135deg, #f6f3ec 0%, #faf8f2 100%);
+$gradient-accent: linear-gradient(135deg, #108976 0%, #0a5e51 100%);
+$gradient-hover: linear-gradient(135deg, #0a5e51 0%, #084439 100%);
 
 // Spacing scale
 $spacing-xs: 0.5rem;
@@ -38,14 +41,19 @@ $font-size-xl: 1.625rem;
 $font-size-2xl: 2.125rem;
 $font-size-3xl: 2.875rem;
 
-$line-height-tight: 1.2;
+$line-height-tight: 1.15;
 $line-height-normal: 1.6;
-$line-height-relaxed: 1.8;
+$line-height-relaxed: 1.75;
 
 // Transitions
-$transition-fast: 0.15s ease-out;
-$transition-base: 0.3s ease-out;
-$transition-slow: 0.5s ease-out;
+$transition-fast: 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-base: 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+$transition-slow: 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+
+// Shared shadows
+$shadow-sm: 0 1px 2px rgba(28, 25, 19, 0.04), 0 2px 8px rgba(28, 25, 19, 0.05);
+$shadow-md: 0 6px 24px rgba(28, 25, 19, 0.08);
+$shadow-lg: 0 20px 50px rgba(28, 25, 19, 0.12);
 
 /*
   Reset some basic elements
@@ -58,31 +66,37 @@ dl, dd, ol, ul, figure {
   padding: 0;
 }
 
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 /*
   Basic styling
 */
 
-/* Headings */
+/* Headings — display serif */
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: $spacing-sm;
+  font-family: $display-font-family;
   font-weight: 600;
   line-height: $line-height-tight;
   text-rendering: optimizeLegibility;
   color: $color-text;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.01em;
+  font-optical-sizing: auto;
 }
 
 h1 {
   font-size: $font-size-3xl;
   margin-top: $spacing-lg;
-  font-weight: 700;
-  letter-spacing: -1px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 h2 {
   margin-top: $spacing-lg;
   font-size: $font-size-2xl;
   font-weight: 600;
-  letter-spacing: -0.5px;
+  letter-spacing: -0.015em;
 }
 h3 {
   margin-top: $spacing-md;
@@ -102,27 +116,26 @@ body {
   background-color: $color-bg;
   font-size: $font-size-base;
   line-height: $line-height-normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body img {
-  align: middle;
   margin: $spacing-md auto;
   display: block;
   max-width: 100%;
   height: auto;
-  border-radius: 8px;
+  border-radius: 10px;
 }
 
 p {
   display: block;
   margin-top: $spacing-md;
   margin-bottom: $spacing-md;
-  margin-left: 0;
-  margin-right: 0;
-  line-height: $line-height-normal;
+  line-height: $line-height-relaxed;
   font-family: $body-font-family;
   color: $color-text-light;
-  letter-spacing: 0.3px;
+  letter-spacing: 0;
 }
 
 /* Lists */
@@ -132,6 +145,7 @@ ul, ol, dl {
   margin-left: $spacing-lg;
   font-family: $body-font-family;
   line-height: $line-height-relaxed;
+  color: $color-text-light;
 }
 
 ol li {
@@ -158,7 +172,7 @@ dd {
 a {
   color: $color-accent;
   text-decoration: none;
-  transition: all $transition-fast;
+  transition: color $transition-fast;
   position: relative;
 
   &:hover {
@@ -166,19 +180,27 @@ a {
   }
 }
 
+/* selection */
+::selection {
+  background: $color-accent-light;
+  color: $color-accent-dark;
+}
+
 /*
   Blockquote
 */
 
 blockquote {
-  margin: $spacing-md $spacing-lg;
-  padding: $spacing-md $spacing-lg;
-  border-left: 4px solid $color-accent;
+  margin: $spacing-md 0;
+  padding: $spacing-sm $spacing-lg;
+  border-left: 3px solid $color-accent;
   background-color: $color-accent-light;
   color: $color-text;
   line-height: $line-height-relaxed;
+  font-family: $display-font-family;
   font-style: italic;
-  border-radius: 4px;
+  font-size: $font-size-lg;
+  border-radius: 0 6px 6px 0;
 }
 
 /**
@@ -188,23 +210,28 @@ table {
   border-collapse: collapse;
   margin-bottom: $spacing-lg;
   width: 100%;
-  border-radius: 8px;
+  border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: $shadow-sm;
+  font-size: $font-size-sm;
 }
 
 table, th, td {
   border: 1px solid $color-border;
 }
 th, td {
-  padding: $spacing-md;
+  padding: $spacing-sm $spacing-md;
   text-align: left;
 }
 
 th {
-  background: linear-gradient(135deg, $color-bg-light 0%, $color-bg 100%);
+  background: $color-bg-light;
   font-weight: 600;
   color: $color-text;
+  font-family: $mono-font-family;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 tr:hover {
@@ -215,26 +242,35 @@ tr:hover {
   Code blocks
 */
 pre {
-  background-color: #f8f9fa;
-  border: 1px solid $color-border;
-  border-radius: 8px;
+  background-color: #1c1913;
+  color: #f4f1ea;
+  border: 1px solid #2a251d;
+  border-radius: 10px;
   padding: $spacing-lg;
   overflow-x: auto;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: $shadow-sm;
   margin: $spacing-lg 0;
+  font-size: $font-size-sm;
+  line-height: 1.7;
 }
 
 code {
-  font-family: 'Source Code Pro', monospace;
-  font-size: 0.9em;
-  color: #d63384;
-  background-color: #f8f9fa;
+  font-family: $code-font-family;
+  font-size: 0.88em;
+  color: $color-accent-dark;
+  background-color: $color-accent-light;
   padding: 2px 6px;
-  border-radius: 4px;
+  border-radius: 5px;
 }
 
 pre code {
   color: inherit;
   background-color: transparent;
   padding: 0;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid $color-border;
+  margin: $spacing-xl 0;
 }
